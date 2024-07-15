@@ -1,0 +1,18 @@
+services:
+  forohubDB:
+    image: mysql:8-debian
+    platform: linux/amd64
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'forohubDB'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'mypass'
+      MYSQL_ROOT_PASSWORD: 'mypass'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - forohub-db:/var/lib/mysql
+volumes:
+  forohub-db:
